@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Epicode_U5_W3_D1.Models.Db_Models.T_Ordine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataArrivo)
+        </th>
+
+        <th>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Indirizzo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataArrivo)
+            </td>
+
+            <td>
+                @if (item.Confermato)
+                {
+                    <span> Arrivo stimato per @item.DataArrivo </span>
+                }
+            </td>
+            <td>
+                @if (!item.Confermato)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
+            </td>
+        </tr>
+}
+
+</table>
+
+@Html.ActionLink("Conferma Ordini", "confermaOrdine", new {}, new { @class="btn btn-primary" })
+

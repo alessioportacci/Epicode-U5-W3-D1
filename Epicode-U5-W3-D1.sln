@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epicode-U5-W3-D1", "Epicode-U5-W3-D1\Epicode-U5-W3-D1.csproj", "{AF3FC5F7-E8F9-49C2-8188-A716548C6493}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF3FC5F7-E8F9-49C2-8188-A716548C6493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF3FC5F7-E8F9-49C2-8188-A716548C6493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF3FC5F7-E8F9-49C2-8188-A716548C6493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF3FC5F7-E8F9-49C2-8188-A716548C6493}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19456D4D-712A-4D9C-8265-41479A4EE50E}
+	EndGlobalSection
+EndGlobal
