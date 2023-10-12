@@ -4,58 +4,68 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantita)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Indirizzo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Note)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataArrivo)
-        </th>
 
         <th>
         </th>
         <th></th>
     </tr>
+    <tbody id="tbody">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Indirizzo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Indirizzo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataArrivo)
-            </td>
+                <td>
+                    @if (item.Confermato)
+                    {
+                        <span> Arrivo stimato per @item.DataArrivo </span>
+                    }
+                </td>
 
-            <td>
-                @if (item.Confermato)
-                {
-                    <span> Arrivo stimato per @item.DataArrivo </span>
-                }
-            </td>
-            <td>
-                @if (!item.Confermato)
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                }
-            </td>
-        </tr>
-}
-
+                <td>
+                    @if (!item.Confermato)
+                    {
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.Id })
+                        <span>|</span>
+                        @Html.ActionLink("Cancella", "Delete", new { id = item.Id })
+                    }
+                    @if (User.IsInRole("admin") && item.Confermato && !item.Evaso)
+                    {
+                        @Html.ActionLink("Evadi", "evadiOrdine", new { id = item.Id })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
-@Html.ActionLink("Conferma Ordini", "confermaOrdine", new {}, new { @class="btn btn-primary" })
+@Html.ActionLink("Conferma Ordini", "confermaOrdine", new { }, new { @class = "btn btn-primary" })
 
+@section scripts
+{
+    <script>
+        let admin = '@User.IsInRole("admin")'
+        console.log(admin)
+    </script>
+
+    <script src="~/Scripts/OrdineIndex.js"></script>
+}
