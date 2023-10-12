@@ -20,22 +20,25 @@ function getOrdini(admin, data)
                 tot += (item.Quantita * item.Costo)
                 console.log(item)
 
+                //1-2-3
                 let tr = "<tr>" +
                     "<td>" + item.Quantita  + "</td>" +
                     "<td>" + item.Indirizzo + "</td>" +
                     "<td>" + item.Note      + "</td>"
 
+                //4
                 if (item.Confermato)
                     tr += "<td> Arrivo stimato per " + item.DataArrivo + "</td>"
                 else
                     tr += "<td> In attesa di conferma </td>"
 
+                //5
                 if (!item.Confermato)
                     tr += "<td> <a href='/Ordine/Edit/" + item.Id + "'>Modifica</a>" +
                           "<span>|</span>" +
-                        "<a href='/Ordine/Delete/" + item.Id + "'>Modifica</a> </td>"
+                        "<a href='/Ordine/Delete/" + item.Id + "'>Elimina</a> </td>"
 
-                else if (item.evaso)
+                else if (item.Evaso)
                     tr += "<td> Ordine evaso </td>"
 
                 else if (admin == 'True')
@@ -44,9 +47,8 @@ function getOrdini(admin, data)
                 tr += "</tr>"
 
                 $("#tbody").append(tr);
-                console.log(tot)
-
             })
+            $("#totale").text("Totale:" + tot)
             console.log(tot)
         },
         error: function (e)
