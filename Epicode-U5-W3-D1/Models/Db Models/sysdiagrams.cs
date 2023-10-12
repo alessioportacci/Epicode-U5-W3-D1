@@ -8,14 +8,14 @@ namespace Epicode_U5_W3_D1.Models.Db_Models
 
     public partial class sysdiagrams
     {
+        [Key]
+        public int diagram_id { get; set; }
+
         [Required]
         [StringLength(128)]
         public string name { get; set; }
 
         public int principal_id { get; set; }
-
-        [Key]
-        public int diagram_id { get; set; }
 
         public int? version { get; set; }
 

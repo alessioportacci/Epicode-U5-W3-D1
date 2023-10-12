@@ -16,9 +16,9 @@
             @Html.DisplayNameFor(model => model.Note)
         </th>
 
-        <th>
-        </th>
-        <th></th>
+        <th> @**@ </th>
+
+        <th> @**@ </th>
     </tr>
     <tbody id="tbody">
         @foreach (var item in Model)
@@ -63,8 +63,8 @@
 @section scripts
 {
     <script>
-        let admin = '@User.IsInRole("admin")'
-        console.log(admin)
+        let a = '@User.IsInRole("admin")'
+        console.log(a)
     </script>
 
     <script src="~/Scripts/OrdineIndex.js"></script>

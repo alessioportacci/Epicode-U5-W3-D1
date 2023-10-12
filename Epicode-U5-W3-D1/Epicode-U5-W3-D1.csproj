@@ -180,11 +180,15 @@
     <Compile Include="Migrations\202310111254161_UpdateOrdine2.designer.cs">
       <DependentUpon>202310111254161_UpdateOrdine2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310121300151_ImportDb.cs" />
+    <Compile Include="Migrations\202310121300151_ImportDb.designer.cs">
+      <DependentUpon>202310121300151_ImportDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Db Models\C__MigrationHistory.cs" />
     <Compile Include="Models\Db Models\ModelDbContext.cs" />
     <Compile Include="Models\Db Models\sysdiagrams.cs" />
     <Compile Include="Models\Db Models\T_Ordine.cs" />
-    <Compile Include="Models\Db Models\T_OrdineProdotto.cs" />
     <Compile Include="Models\Db Models\T_Prodotto.cs" />
     <Compile Include="Models\Db Models\T_Utenti.cs" />
     <Compile Include="Models\Role.cs" />
@@ -311,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310111254161_UpdateOrdine2.resx">
       <DependentUpon>202310111254161_UpdateOrdine2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310121300151_ImportDb.resx">
+      <DependentUpon>202310121300151_ImportDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -91,7 +91,7 @@ namespace Epicode_U5_W3_D1.Controllers
             return RedirectToAction("Index");
         }
 
-
+        /*
         [Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
@@ -108,5 +108,6 @@ namespace Epicode_U5_W3_D1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        */
     }
 }

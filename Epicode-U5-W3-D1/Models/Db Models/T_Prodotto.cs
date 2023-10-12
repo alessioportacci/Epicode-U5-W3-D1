@@ -12,7 +12,7 @@ namespace Epicode_U5_W3_D1.Models.Db_Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public T_Prodotto()
         {
-            T_OrdineProdotto = new HashSet<T_OrdineProdotto>();
+            T_Ordine = new HashSet<T_Ordine>();
         }
 
         public int Id { get; set; }
@@ -33,6 +33,6 @@ namespace Epicode_U5_W3_D1.Models.Db_Models
         public string Ingredienti { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_OrdineProdotto> T_OrdineProdotto { get; set; }
+        public virtual ICollection<T_Ordine> T_Ordine { get; set; }
     }
 }

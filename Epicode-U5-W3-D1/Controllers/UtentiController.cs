@@ -43,7 +43,7 @@ namespace Epicode_U5_W3_D1.Controllers
         {
             T_Utenti utente = db.T_Utenti.Find(id);
             List<T_Ordine> Ordini = db.T_Ordine.Where(o => o.FkUtente == id).ToList();
-            List<T_OrdineProdotto> OrdineProdotto = new List<T_OrdineProdotto>();
+            /*List<T_OrdineProdotto> OrdineProdotto = new List<T_OrdineProdotto>();
 
             //Cancello gli ordini
             foreach (T_Ordine ordine in Ordini)
@@ -55,6 +55,7 @@ namespace Epicode_U5_W3_D1.Controllers
                 //Cancello l'ordine in se
                 db.T_Ordine.Remove(ordine);
             }
+            */
 
             //Cancello l'utente
             db.T_Utenti.Remove(utente);

@@ -15,6 +15,21 @@ namespace Epicode_U5_W3_D1.Controllers
         ModelDbContext db = new ModelDbContext();
 
 
+        private class Ordine
+        {
+            public int Id { get; set; }
+            public int FkUtente { get; set; }
+            public int Quantita { get; set; }
+            public string Indirizzo { get; set; }
+            public string Note { get; set; }
+            public bool Confermato{ get; set; }
+            public bool Evaso{ get; set; }
+            public string DataArrivo { get; set; }
+            public int FkProdotto { get; set; }
+            public decimal Costo { get; set; }
+
+        }
+
         public ActionResult Index()
         {
             int id = Int32.Parse(Session["IdUtente"].ToString());
@@ -27,23 +42,45 @@ namespace Epicode_U5_W3_D1.Controllers
 
 
         public JsonResult getOrdini(DateTime? Data)
-        {            
+        {
+            //Creo la variabile con quello che mi serve
+            List<Ordine> Ordini = new List<Ordine>();
+
+            foreach(T_Ordine or in db.T_Ordine.ToList())
+                Ordini.Add(new Ordine
+                {
+                    Id = or.Id,
+                    FkUtente = or.FkUtente.Value,
+                    Quantita = or.Quantita,
+                    Indirizzo = or.Indirizzo,
+                    Note = or.Note,
+                    Confermato = or.Confermato,
+                    Evaso = or.Evaso,
+                    DataArrivo = or.DataArrivo.ToString(),
+                    FkProdotto = or.FkProdotto.Value,
+                    Costo = db.T_Prodotto.Find(or.FkProdotto).Costo.Value
+                });
+
             //Se è admin faccio il filtro sulla data (se disponibile)
             if (User.IsInRole("admin"))
                 if(Data.HasValue)
-                    return Json(db.T_Ordine.Where(o => o.DataArrivo == Data).ToList(), 
-                                    JsonRequestBehavior.AllowGet);
+                    return Json(Ordini.Where(o => DateTime.Parse(o.DataArrivo) == Data).ToList(), JsonRequestBehavior.AllowGet);
                 else
-                    return Json(db.T_Ordine.ToList(), 
-                                    JsonRequestBehavior.AllowGet);
+                    return Json(Ordini, JsonRequestBehavior.AllowGet);
 
             //Altrimenti passo i dati dell'utente normale
             int id = Int32.Parse(Session["IdUtente"].ToString());
 
-            return Json(db.T_Ordine.Where(o => o.FkUtente == id && o.Evaso == false).ToList(), 
-                            JsonRequestBehavior.AllowGet);
+            return Json(Ordini.Where(o => o.FkUtente == id && o.Evaso == false)
+                        , JsonRequestBehavior.AllowGet);
         }
 
+
+        public decimal getCostoOrdine(int FkProdotto)
+        {
+            return db.T_Prodotto.Find(FkProdotto).Costo.Value;
+
+        }
 
         public ActionResult confermaOrdine()
         {
