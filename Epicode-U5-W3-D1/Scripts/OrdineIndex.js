@@ -44,6 +44,9 @@ function getOrdini(admin, data)
                 else if (admin == 'True')
                     tr += "<td> <a class='btn btn-primary' href='/Ordine/evadiOrdine/" + item.Id + "'>Evadi</a> </td>"
 
+                else 
+                    tr += "<td> </td>"
+
                 tr += "</tr>"
 
                 $("#tbody").append(tr);

@@ -91,16 +91,14 @@ namespace Epicode_U5_W3_D1.Controllers
             return RedirectToAction("Index");
         }
 
-        /*
         [Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
             T_Prodotto prodotto = db.T_Prodotto.Find(id);
 
-            //Elimino prima il prodotto da tutti gli ordini
-            List<T_OrdineProdotto> Ordini = db.T_OrdineProdotto.Where(op => op.T_Prodotto.Id == id).ToList();
-            foreach(T_OrdineProdotto ordine in  Ordini)
-                db.T_OrdineProdotto.Remove(ordine);
+            List<T_Ordine> Ordini = db.T_Ordine.Where(o => o.FkProdotto == id).ToList();
+            foreach(T_Ordine ordine in Ordini)
+                db.T_Ordine.Remove(ordine);
 
             //Ora posso eliminare il prodotto
             db.T_Prodotto.Remove(prodotto);
@@ -108,6 +106,5 @@ namespace Epicode_U5_W3_D1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        */
     }
 }

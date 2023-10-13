@@ -163,6 +163,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdineController.cs" />
     <Compile Include="Controllers\ProdottoController.cs" />
+    <Compile Include="Controllers\T_OrdineProdotto.cs" />
     <Compile Include="Controllers\UtentiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,6 +184,14 @@
     <Compile Include="Migrations\202310121300151_ImportDb.cs" />
     <Compile Include="Migrations\202310121300151_ImportDb.designer.cs">
       <DependentUpon>202310121300151_ImportDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310131011357_AggiuntoControlloLogin.cs" />
+    <Compile Include="Migrations\202310131011357_AggiuntoControlloLogin.designer.cs">
+      <DependentUpon>202310131011357_AggiuntoControlloLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310131022064_AggiunteLabelsRequired.cs" />
+    <Compile Include="Migrations\202310131022064_AggiunteLabelsRequired.designer.cs">
+      <DependentUpon>202310131022064_AggiunteLabelsRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Db Models\C__MigrationHistory.cs" />
@@ -322,6 +331,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310121300151_ImportDb.resx">
       <DependentUpon>202310121300151_ImportDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310131011357_AggiuntoControlloLogin.resx">
+      <DependentUpon>202310131011357_AggiuntoControlloLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310131022064_AggiunteLabelsRequired.resx">
+      <DependentUpon>202310131022064_AggiunteLabelsRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

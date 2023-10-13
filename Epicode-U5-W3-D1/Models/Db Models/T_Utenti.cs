@@ -17,12 +17,15 @@ namespace Epicode_U5_W3_D1.Models.Db_Models
         public int Id { get; set; }
 
         [StringLength(100)]
+        [Required(ErrorMessage = "Inserire un nome")]
         public string Nome { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage = "Inserire un username")]
         public string Username { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage = "Inserire una password")]
         public string Password { get; set; }
 
         [StringLength(50)]

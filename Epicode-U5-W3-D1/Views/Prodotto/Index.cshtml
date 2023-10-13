@@ -24,7 +24,7 @@
                 <img class="card-img-top card-image" src="~/Content/Img/@item.Img" alt="Card image cap" height="235">
                 <div class="card-body">
                     <h5 class="card-title">@item.Nome</h5>
-                    <p class="card-text">@item.Costo€</p>
+                    <p class="card-text">@item.Costo.Value.ToString("C")</p>
                     <div class="row row-cols-3">
                         <div>
                             @Html.ActionLink("Dettagli", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })

@@ -18,6 +18,9 @@ namespace Epicode_U5_W3_D1.Models.Db_Models
         public int Id { get; set; }
 
         [StringLength(100)]
+        [Required(ErrorMessage = "Inserire un nome")]
+        
+        
         public string Nome { get; set; }
 
         [StringLength(50)]
@@ -27,9 +30,12 @@ namespace Epicode_U5_W3_D1.Models.Db_Models
         public HttpPostedFileBase Immagine { get; set; }
 
         [Column(TypeName = "money")]
+        [Required(ErrorMessage = "Inserire un prezzo")]
+        [Display(Name = "Prezzo")]
         public decimal? Costo { get; set; }
 
         [StringLength(400)]
+        [Required(ErrorMessage = "Inserire gli ingredienti")]
         public string Ingredienti { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -56,10 +56,10 @@
         @Html.TextBox("FkProdotto", Model.Id, new { @class = "d-none", @type = "number" })
 
         @Html.Label("Indirizzo", "Inserisci un indirizzo")
-        @Html.TextBox("Indirizzo", "", new { @name = "Indirizzo", @class = "form-control my-2", @placeholder = "Inserisci indirizzo" })
+        @Html.TextBox("Indirizzo", "", new { @name = "Indirizzo", @class = "form-control my-2", @placeholder = "Inserisci indirizzo", @required = "true"})
 
         @Html.Label("Note", "Inserisci una nota")
-        @Html.TextBox("Note", "", new { @name = "Note", @class = "form-control  my-2", @placeholder = "Aggiungi delle note" })
+        @Html.TextBox("Note", "", new { @name = "Note", @class = "form-control  my-2", @placeholder = "Aggiungi delle note", @required = "true" })
 
         @Html.Label("Quantita", "Quante?")
         @Html.DropDownList("quantita", Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @name="Quantita" ,@class = "form-control  my-2" })
