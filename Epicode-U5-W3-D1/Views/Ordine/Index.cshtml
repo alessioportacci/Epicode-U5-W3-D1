@@ -4,10 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<p id="totale"> TOTALE </p>
+<div class="row align-items-center">
+    <div class="col-12 col-md-2">
+        <label for="databox" class="text-white"> Filtro sulla data </label> <br />
+        <input id="databox" dirname="databox" type="date" name="data" class="form-label" />
+    </div>
+    <div class="col-12 col-md-1">
+        <input id="cerca" type="button" class="btn btn-outline-light" value="Filtra" />
+    </div>
+</div>
 
 
-<table class="table">
+<h3 id="totale" class="text-white"> TOTALE </h3>
+
+
+<table class="table my-table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Quantita)
@@ -61,7 +72,7 @@
     </tbody>
 </table>
 
-@Html.ActionLink("Conferma Ordini", "confermaOrdine", new { }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Conferma Ordini", "confermaOrdine", new { }, new { @class = "btn btn-outline-light my-3" })
 
 @section scripts
 {

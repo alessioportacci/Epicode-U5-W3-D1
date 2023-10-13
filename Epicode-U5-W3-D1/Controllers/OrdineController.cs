@@ -64,7 +64,7 @@ namespace Epicode_U5_W3_D1.Controllers
             //Se è admin faccio il filtro sulla data (se disponibile)
             if (User.IsInRole("admin"))
                 if(Data.HasValue)
-                    return Json(Ordini.Where(o => DateTime.Parse(o.DataArrivo) == Data).ToList(), JsonRequestBehavior.AllowGet);
+                    return Json(Ordini.Where(o => DateTime.Parse(o.DataArrivo).Date == Data.Value.Date).ToList(), JsonRequestBehavior.AllowGet);
                 else
                     return Json(Ordini, JsonRequestBehavior.AllowGet);
 

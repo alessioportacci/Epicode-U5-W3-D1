@@ -1,26 +1,56 @@
-﻿<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="aspnetTitle">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-            is an ideal platform for building RESTful applications on the .NET Framework.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-        </section>>
+﻿
+<div class="row row-cols-1 row-cols-md-2 justify-content-center align-items-center h-100" style="height: 70vh !important" >
+
+    <div class="row row-cols-1">
+
+        @if (!User.IsInRole("Admin"))
+        {
+            <div>
+                <img src="~/Content/Assets/logo.png" class="w-75 mb-2" />
+            </div>
+        }
+
+
+
+        <div class="text-white">
+            @* Se sei loggato *@
+            @if (User.Identity.IsAuthenticated)
+            {
+                @* Se sei un admin *@
+                if (User.IsInRole("Admin"))
+                {
+                    <h3> Ciao @User.Identity.Name, </h3>
+                    <p> Le solite operazioni di routine?</p>
+                    @Html.ActionLink("Gestisci gli utenti", "Index", "Utenti", new { }, new { @class = "btn btn-outline-light d-block w-50 my-2" })
+                    @Html.ActionLink("Gestisci i prodotti", "Index", "Prodotto", new { }, new { @class = "btn btn-outline-light d-block w-50 my-2" })
+                    @Html.ActionLink("Visualizza gli ordini", "Index", "Ordine", new { }, new { @class = "btn btn-outline-light d-block w-50 my-2" })
+                }
+
+                @* Se sei un cliente*@
+                else
+                {
+                    <h3> Ciao @User.Identity.Name, </h3>
+                    <p> Ordinati una pizza dal nostro catalogo!</p>
+                    @Html.ActionLink("Dai un'occhiata", "Index", "Prodotto", new { }, new { @class = "btn btn-outline-light" })
+                }
+            }
+            @* Se non sei loggato *@
+            else
+            {
+                <h3> Hai fame? </h3>
+                <p> Accedi ed ordinati una pizza!</p>
+                @Html.ActionLink("Accedi", "Login", new { }, new { @class = "btn btn-outline-light" })
+            }
+        </div>
+
     </div>
-</main>
+
+
+
+    <div class="">
+
+        <img src="~/Content/Assets/PizzaHome.jpg" class="w-100"/>
+
+    </div>
+
+</div>

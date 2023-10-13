@@ -4,13 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<div class="d-flex align-items-center mb-4">
+<div class="d-flex align-items-center mb-4 text-white">
     <h2 class="d-inline">Le nostre pizze</h2>
 
     @if (User.IsInRole("admin"))
     {
-        @Html.ActionLink("+", "Create", new { }, new { @class = "btn btn-primary mx-3" })
+        @Html.ActionLink("➕", "Create", new { }, new { @class = "btn btn-outline-light mx-3" })
     }
+
+    <hr class="text-white"/>
 </div>
 
 
@@ -18,8 +20,8 @@
     @foreach (var item in Model)
     {
         <div>
-            <div class="card mb-3" style="width: 19rem;">
-                <img class="card-img-top" src="~/Content/Img/@item.Img" alt="Card image cap" height="230">
+            <div class="card mt-5" style="width: 19rem;">
+                <img class="card-img-top card-image" src="~/Content/Img/@item.Img" alt="Card image cap" height="235">
                 <div class="card-body">
                     <h5 class="card-title">@item.Nome</h5>
                     <p class="card-text">@item.Costo€</p>

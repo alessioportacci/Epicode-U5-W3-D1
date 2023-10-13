@@ -196,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\Assets\logo.png" />
+    <Content Include="Content\Assets\PizzaHome.jpg" />
+    <Content Include="Content\Assets\Wallpaper.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -212,6 +215,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Img\Wallpaper.jpg" />
     <Content Include="Content\Img\margherita.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

@@ -10,33 +10,29 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black">
         <div class="container">
-            @Html.ActionLink("Pizza city", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <img src="~/Content/Assets/logo.png"  height="70" onclick="location.href='@Url.Action( "Index", "Home")'" style="cursor:pointer"/>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between text-end">
+                <ul class="navbar-nav flex-grow-1 flex-row-reverse">
                     @if (User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Utenti", "Index", "Utenti", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Ordini", "Index", "Ordine", new { area = "" }, new { @class = "nav-link" })</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Carrello", "Index", "Ordine", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Utenti", "Index", "Utenti", new { area = "" }, new { @class = "nav-link" })</li>
                     }
 
                     @if (User.Identity.IsAuthenticated)
                     {
+                        if (!User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Carrello", "Index", "Ordine", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
                         <li>@Html.ActionLink("Prodotti", "Index", "Prodotto", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
                 </ul>
             </div>

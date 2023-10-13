@@ -11,3 +11,52 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+body
+{
+    background-image: url(Assets/Wallpaper.jpg);
+    background-size: auto;
+}
+
+.bg-black 
+{
+    background-color:rgba(0, 0, 0, 0.5)  !important
+}
+
+.card-image {
+    border-top-left-radius: 17px !important;
+    border-top-right-radius: 17px !important
+}
+
+.card {
+    box-sizing: border-box;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+}
+
+    .card:hover {
+        border: 1px solid black;
+        transform: scale(1.05);
+    }
+
+    .card:active {
+        transform: scale(0.95) rotateZ(1.7deg);
+    }
+
+.my-table {
+    --bs-table-bg: rgba(255, 255, 255, 0.8) !important
+}
+

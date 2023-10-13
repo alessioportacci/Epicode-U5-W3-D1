@@ -48,7 +48,7 @@ function getOrdini(admin, data)
 
                 $("#tbody").append(tr);
             })
-            $("#totale").text("Totale:" + tot)
+            $("#totale").text("Totale: " + tot + "€")
             console.log(tot)
         },
         error: function (e)
@@ -58,29 +58,10 @@ function getOrdini(admin, data)
     })
 }
 
-function getCosto(fk, quant)
-{
-    let totale = 0
-    $.ajax
-        ({
-            method: 'POST',
-            url: "Ordine/getCostoOrdine",
-            data:
-            {
-                FkProdotto: fk,
-                Quantita: quant
-            },
-            success: function (out)
-            {
-                console.log(out)
-                return out
-            },
-            error: function (e)
-            {
-                console.log(e, "PORCODIO")
-            }
-        })
-}
-
 
 getOrdini(a)
+
+$("#cerca").click(function () {
+    let data = $("#databox").val()
+    getOrdini(a, data)
+});

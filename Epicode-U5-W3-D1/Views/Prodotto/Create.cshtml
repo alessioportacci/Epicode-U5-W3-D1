@@ -4,15 +4,18 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Aggiungi Pizza</h2>
-<hr />
+<div class="text-white">
+    <h2>Aggiungi una Pizza</h2>
+    <hr />
+</div>
+
 
 
 @using (Html.BeginForm("Create", "Prodotto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal text-white">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
